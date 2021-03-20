@@ -1,14 +1,18 @@
-export const videos = [
-  {
-    id: 1235452,
-    title: "Video awesome",
-    description: "This is something I love",
-    views: 24,
-    videoFile: "https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4",
-    creator: {
-      id: 777777,
-      name: "Eric-Kim",
-      email: "eric@naver,com",
-    },
-  },
-];
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("✅ Connected to DB");
+const handleError = (error) =>
+  console.log(`❌ Error on DB connection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);

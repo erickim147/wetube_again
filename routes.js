@@ -27,6 +27,12 @@ const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 const BASE = "http://localhost:4000/";
 
+// API
+
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+const ADD_COMMENT = "/:id/comment";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -70,6 +76,9 @@ const routes = {
   githubCallback: GITHUB_CALLBACK,
   me: ME,
   base: BASE,
+  api: API,
+  registerView: REGISTER_VIEW,
+  addComment: ADD_COMMENT,
 };
 
 export default routes;
